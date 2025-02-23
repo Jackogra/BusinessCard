@@ -1,21 +1,15 @@
 """
-1. Wyobraź sobie, że właśnie wracasz z obchodów Dni Sapera (niezwykle hucznych),
-Święta Bigosu, albo Konwencji Wielbicieli Pizzy Hawajskiej. Jedno jest pewne
-– masz całą kolekcję wizytówek od ludzi, z którymi chcesz utrzymać kontakt
-przydałaby się książka adresowa, żeby ich wszystkich nie pogubić.
-
-Stwórz klasę, która będzie przechowywać informacje z jednej wizytówki.
-Przyjmij, że każda wizytówka zawiera dane takie jak: imię, nazwisko, nazwa firmy, stanowisko, adres e-mail.
+1. Stwórz klasę, która będzie przechowywać informacje z jednej wizytówki.
+Przyjmij, że każda wizytówka zawiera dane takie jak: imię, nazwisko, nazwa firmy, stanowisko, adres e-mail. - __DONE
 
 Zdefiniuj listę, która będzie zawierała 5 wizytówek ludzi o losowych danych
-(dane możesz skopiować ze strony takiej jak Fake Name Generator.
+(dane możesz skopiować ze strony takiej jak Fake Name Generator. - __DONE
 
 Skonstruuj pętlę, która wyświetli całą zawartość listy wizytówek tak, aby w jednej linii widoczne było imię,
-nazwisko i adres e-mail właściciela wizytówki.
-
+nazwisko i adres e-mail właściciela wizytówki. - __DONE
 
 2. Napisz funkcję, która tworzy instancje Twojej klasy reprezentującej wizytówkę. Używając biblioteki faker,
-którą opisaliśmy powyżej. Zapewnij losowość danych w każdej wizytówce, którą zwróci Twoja funkcja.
+którą opisaliśmy powyżej. Zapewnij losowość danych w każdej wizytówce, którą zwróci Twoja funkcja. - __DONE
 
 
 3a. Zmodyfikuj kod z poprzedniego ćwiczenia na temat książki adresowej tak, aby obiekt wizytówki
@@ -50,6 +44,8 @@ który zwraca długość imienia i nazwiska danej osoby.
 Niech ta funkcja przyjmuje dwa parametry: rodzaj wizytówki oraz ilość.
 Wykorzystaj bibliotekę faker do generowania danych.
 """
+from faker import Faker
+fake = Faker()
 
 
 class BusinessCard:
@@ -61,18 +57,28 @@ class BusinessCard:
         self.email = email
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.email}"
+        return f"{self.first_name} {self.last_name} - {self.company} - {self.job} - {self.email}"
 
 
 # business card list for task 1
 business_cards = [
-    BusinessCard("Maryann", "Hester", "Realty Zone", "Information clerk", "MaryannCHester@rhyta.com"),
-    BusinessCard("Idella", "Goddard", "Hill-Behan", "Gerontology social worker", "IdellaCGoddard@rhyta.com"),
-    BusinessCard("Ella", "Evans", "Integra Wealth Planners", "Applied mathematician", "EllaCEvans@jourrapide.com"),
-    BusinessCard("Martin", "Lau", "Leath Furniture", "Conference service coordinator", "MartinALau@armyspy.com"),
-    BusinessCard("Terry", "Workman", "Northern Reflections", "Upholsterer", "TerryJWorkman@armyspy.com"),
-]
+    BusinessCard("Maryann", "Hester", "Realty Zone", "Information clerk", "MaryannHester@rhyta.com"),
+    BusinessCard("Idella", "Goddard", "Hill-Behan", "Gerontology social worker", "IdellaGoddard@rhyta.com"),
+    BusinessCard("Ella", "Evans", "Integra Wealth Planners", "Applied mathematician", "EllaEvans@jourrapide.com"),
+    BusinessCard("Martin", "Lau", "Leath Furniture", "Conference service coordinator", "MartinLau@armyspy.com"),
+    BusinessCard("Terry", "Workman", "Northern Reflections", "Upholsterer", "TerryWorkman@armyspy.com"),]
+
 # for loop to display data from the business cards
 print("\nOutput for task 1:")
 for card in business_cards:
-    print(card)
+    print(card.first_name, card.last_name, "-", card.email)
+print("\n")
+
+# creating a list of business cards using faker module
+fake_business_card = [
+    BusinessCard(fake.first_name(), fake.last_name(), fake.company(), fake.job(), fake.email()) for i in range(5)]
+
+# for loop to display data from the business cards created with faker module
+print("Output for task 2:")
+for fake_card in fake_business_card:
+    print(fake_card)
