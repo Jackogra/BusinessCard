@@ -57,7 +57,7 @@ class BusinessCard:
         self.email = email
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.company} - {self.job} - {self.email}"
+        return f"{self.first_name}, {self.last_name}, {self.email}"
 
 
 # business card list for task 1
@@ -69,16 +69,47 @@ business_cards = [
     BusinessCard("Terry", "Workman", "Northern Reflections", "Upholsterer", "TerryWorkman@armyspy.com"),]
 
 # for loop to display data from the business cards
-print("\nOutput for task 1:")
+print("\n==================== Output for task 1: ====================")
 for card in business_cards:
     print(card.first_name, card.last_name, "-", card.email)
-print("\n")
 
 # creating a list of business cards using faker module
 fake_business_card = [
     BusinessCard(fake.first_name(), fake.last_name(), fake.company(), fake.job(), fake.email()) for i in range(5)]
 
 # for loop to display data from the business cards created with faker module
-print("Output for task 2:")
+print("\n==================== Output for task 2: ====================")
+for fake_card in fake_business_card:
+    print(fake_card.first_name, fake_card.last_name, "-", fake_card.company, "-", fake_card.job, "-", fake_card.email)
+
+# for loop to display data for task 3a
+print("\n==================== Output for taks 3a: ====================")
 for fake_card in fake_business_card:
     print(fake_card)
+
+
+def __gt__(fake2, other):
+    return fake2 > other
+
+
+# crate a new list for task 3b
+sorted_business_cards = [
+    BusinessCard(fake.first_name(), fake.last_name(), fake.company(), fake.job(), fake.email()) for i in range(10)]
+
+# sorting business card per attribute
+by_first_name = sorted(sorted_business_cards, key=lambda card3: card3.first_name)
+by_last_name = sorted(sorted_business_cards, key=lambda card3: card3.last_name)
+by_email = sorted(sorted_business_cards, key=lambda card3: card3.email)
+
+# printing output for task 3b
+print("\n==================== Output for task 3b: ====================\n--> by first_name:")
+for i in by_first_name:
+    print(i)
+
+print("\n--> by last_name:")
+for i in by_last_name:
+    print(i)
+
+print("\n--> by email:")
+for i in by_email:
+    print(i)
