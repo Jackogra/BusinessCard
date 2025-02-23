@@ -59,3 +59,20 @@ class BusinessCard:
         self.company = company
         self.job = job
         self.email = email
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.email}"
+
+
+# business card list for task 1
+business_cards = [
+    BusinessCard("Maryann", "Hester", "Realty Zone", "Information clerk", "MaryannCHester@rhyta.com"),
+    BusinessCard("Idella", "Goddard", "Hill-Behan", "Gerontology social worker", "IdellaCGoddard@rhyta.com"),
+    BusinessCard("Ella", "Evans", "Integra Wealth Planners", "Applied mathematician", "EllaCEvans@jourrapide.com"),
+    BusinessCard("Martin", "Lau", "Leath Furniture", "Conference service coordinator", "MartinALau@armyspy.com"),
+    BusinessCard("Terry", "Workman", "Northern Reflections", "Upholsterer", "TerryJWorkman@armyspy.com"),
+]
+# for loop to display data from the business cards
+print("\nOutput for task 1:")
+for card in business_cards:
+    print(card)
