@@ -59,6 +59,17 @@ class BusinessCard:
     def __str__(self):
         return f"{self.first_name}, {self.last_name}, {self.email}"
 
+    def contact(self):
+        return f"I am reaching out to {self.first_name} {self.last_name} - {self.job} - {self.email}"
+
+    @property
+    def first_name_len(self):
+        return len(self.first_name)
+
+    @property
+    def last_name_len(self):
+        return len(self.last_name)
+
 
 # business card list for task 1
 business_cards = [
@@ -113,3 +124,14 @@ for i in by_last_name:
 print("\n--> by email:")
 for i in by_email:
     print(i)
+
+# printing output for task 4a
+print("\n==================== Output for task 4a: ====================")
+for fake_card in fake_business_card:
+    print(fake_card.contact())
+
+# printing output for task 4b
+print("\n==================== Output for task 4b: ====================")
+for fake_card in fake_business_card:
+    print(f"First name length: {fake_card.first_name} - {fake_card.first_name_len}, "
+          f"Last name length: {fake_card.last_name} - {fake_card.last_name_len}")
