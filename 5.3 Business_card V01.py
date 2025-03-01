@@ -61,18 +61,19 @@ def create_contacts(contact_type, quantity):
     return contacts
 
 
-# variables to let the user decide how many and what type of cards system should create
-base_contact_qty = int(input("How many Base Contact cards should be created? Enter an integer number:"))
-business_contact_qty = int(input("How many Business Contact cards should be created? Enter an integer number:"))
+if __name__ == "__main__":
+    # variables to let the user decide how many and what type of cards system should create
+    base_contact_qty = int(input("How many Base Contact cards should be created? Enter an integer number:"))
+    business_contact_qty = int(input("How many Business Contact cards should be created? Enter an integer number:"))
 
-contacts = create_contacts("P", base_contact_qty) + create_contacts("B", business_contact_qty)
+    contacts = create_contacts("P", base_contact_qty) + create_contacts("B", business_contact_qty)
 
-# sorting business card per attribute
-by_first_name = sorted(contacts, key=lambda card3: card3.first_name)
-by_last_name = sorted(contacts, key=lambda card3: card3.last_name)
-by_email = sorted(contacts, key=lambda card3: card3.email)
+    # sorting business card per attribute
+    by_first_name = sorted(contacts, key=lambda card3: card3.first_name)
+    by_last_name = sorted(contacts, key=lambda card3: card3.last_name)
+    by_email = sorted(contacts, key=lambda card3: card3.email)
 
-# print contacts
-print("\n===========Create Contact Cards==========")
-for contact in contacts:
-    print(contact)
+    # print contacts
+    print("\n===========Create Contact Cards==========")
+    for contact in contacts:
+        print(contact)
